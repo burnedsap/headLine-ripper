@@ -2,10 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 pages = []
 b = 31
-new_path = '/Users/salil/Documents/scrapeing device/input.txt'
+new_path = '/Users/username/Documents/folder/input.txt'
 new_days = open(new_path,'w')
 
-for j in range(1, 2):
+for j in range(1, 12+1):
     if j==1:
         b = 31
     if j==2:
@@ -30,7 +30,7 @@ for j in range(1, 2):
         b = 30
     if j==12:
         b = 31
-    for i in range(1, 3):
+    for i in range(1, b+1):
         url = 'https://www.thehindu.com/archive/print/2018/' + str(j)+ '/' + str(i) + '.htm'
         pages.append(url)
 
@@ -49,5 +49,5 @@ for j in range(1, 2):
             for head in art_n:
                 headL = head.contents[0]
                 print(headL)
-                new_days.write(headL+"\n")
+                new_days.write(headL)
 new_days.close()
